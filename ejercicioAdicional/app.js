@@ -73,15 +73,16 @@ console.log("Total: ", reservaHotel.total);
 
 
 class ReservaHotel2 extends ReservaHotel {
-    calculaTotal() {
-        this._total = reserva.reduce(
-            (acc, { noches, desayuno }) => acc + noches * 85 + this.precioDesayuno(desayuno),
+    calculaSubtotal() {
+        this._subtotal = reserva.reduce(
+            (acc, { noches, desayuno }) => acc + noches * 85 + this.precioDesayuno(desayuno, noches),
             0
         )
     }
 }
 
-console.log("-------CTarifa Tour---------");
+console.log("-------Tarifa Tour---------");
 const reserva2 = new ReservaHotel2();
 reserva2.reserva = reserva;
-console.log('total: ', reserva2.total);
+console.log('Subtotal: ', reserva2.subtotal);
+console.log('Total: ', reserva2.total);
